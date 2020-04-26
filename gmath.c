@@ -29,7 +29,12 @@ color get_lighting( double *normal, double *view, color alight, double light[2][
 }
 
 color calculate_ambient(color alight, double *areflect ) {
-  color a;
+  color a = alight;
+  int i;
+
+  for (i = 0; i < 3; i++)
+    *(unsigned short*)(&a+i) *= *areflect;
+
   return a;
 }
 
