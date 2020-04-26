@@ -87,13 +87,13 @@ color calculate_specular(double light[2][3], double *sreflect, double *view, dou
 //limit each component of c to a max of 255
 void limit_color( color * c ) {
 
-  printf("BEFORE: %d, %d, %d\n", c->red, c->green, c->blue);
+  // printf("BEFORE: %d, %d, %d\n", c->red, c->green, c->blue);
 
   c->red = (c->red < 0) ? 0 : (c->red > 255) ? 255 : c->red;
   c->green = (c->green < 0) ? 0 : (c->green > 255) ? 255 : c->green;
   c->blue = (c->blue < 0) ? 0 : (c->blue > 255) ? 255 : c->blue;
 
-  printf("AFTER: %d, %d, %d\n", c->red, c->green, c->blue);
+  // printf("AFTER: %d, %d, %d\n", c->red, c->green, c->blue);
 }
 
 //vector functions
