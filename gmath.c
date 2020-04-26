@@ -40,6 +40,14 @@ color calculate_ambient(color alight, double *areflect ) {
 
 color calculate_diffuse(double light[2][3], double *dreflect, double *normal ) {
   color d;
+
+  normalize(light[LOCATION]);
+  double cos_theta = dot_product(normal, light[LOCATION]);
+
+  d.red = light[COLOR][RED] * dreflect[RED] * cos_theta;
+  d.red = light[COLOR][RED] * dreflect[RED] * cos_theta;
+  d.red = light[COLOR][RED] * dreflect[RED] * cos_theta;
+
   return d;
 }
 
@@ -94,6 +102,8 @@ double *calculate_normal(struct matrix *polygons, int i) {
   N[0] = A[1] * B[2] - A[2] * B[1];
   N[1] = A[2] * B[0] - A[0] * B[2];
   N[2] = A[0] * B[1] - A[1] * B[0];
+
+  normalize(N);
 
   return N;
 }
