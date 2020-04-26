@@ -54,6 +54,18 @@ color calculate_diffuse(double light[2][3], double *dreflect, double *normal ) {
 color calculate_specular(double light[2][3], double *sreflect, double *view, double *normal ) {
   color s;
 
+  double vec_reflect[3];
+
+  vec_reflect[0] = 2 * dot_product(normal, light[LOCATION]) * normal[0] - light[LOCATION][0];
+  vec_reflect[1] = 2 * dot_product(normal, light[LOCATION]) * normal[1] - light[LOCATION][1];
+  vec_reflect[2] = 2 * dot_product(normal, light[LOCATION]) * normal[2] - light[LOCATION][2];
+
+  double cos_pow = pow(dot_product(vec_reflect, view), 4);
+
+  s.red = light[COLOR][RED] * sreflect[RED] * cos_pow;
+  s.green = light[COLOR][GREEN] * sreflect[GREEN] * cos_pow;
+  s.blue = light[COLOR][BLUE] * sreflect[BLUE] * cos_pow;
+
   return s;
 }
 
