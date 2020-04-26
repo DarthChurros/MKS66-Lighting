@@ -33,6 +33,7 @@ color get_lighting( double *normal, double *view, color alight, double light[2][
   i.green = a.green + d.green + s.green;
   i.blue = a.blue + d.blue + s.blue;
 
+  limit_color(&i);
   return i;
 }
 
@@ -43,6 +44,7 @@ color calculate_ambient(color alight, double *areflect ) {
   a.green *= areflect[GREEN];
   a.blue *= areflect[BLUE];
 
+  limit_color(&a);
   return a;
 }
 
@@ -57,6 +59,7 @@ color calculate_diffuse(double light[2][3], double *dreflect, double *normal ) {
   d.green = light[COLOR][GREEN] * dreflect[GREEN] * cos_theta;
   d.blue = light[COLOR][BLUE] * dreflect[BLUE] * cos_theta;
 
+  limit_color(&d);
   return d;
 }
 
@@ -77,6 +80,7 @@ color calculate_specular(double light[2][3], double *sreflect, double *view, dou
   s.green = light[COLOR][GREEN] * sreflect[GREEN] * cos_pow;
   s.blue = light[COLOR][BLUE] * sreflect[BLUE] * cos_pow;
 
+  limit_color(&s);
   return s;
 }
 
