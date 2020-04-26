@@ -46,12 +46,12 @@ int main(int argc, char **argv) {
   areflect[BLUE] = 0.2;
 
   dreflect[RED] = 0.1;
-  dreflect[GREEN] = 0.4;
-  dreflect[BLUE] = 0.6;
+  dreflect[GREEN] = 0.2;
+  dreflect[BLUE] = 0.7;
 
   sreflect[RED] = 0.2;
-  sreflect[GREEN] = 0.7;
-  sreflect[BLUE] = 0.35;
+  sreflect[GREEN] = 0.8;
+  sreflect[BLUE] = 0.25;
 
   screen s;
   zbuffer zb;
