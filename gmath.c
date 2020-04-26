@@ -38,11 +38,11 @@ color get_lighting( double *normal, double *view, color alight, double light[2][
 }
 
 color calculate_ambient(color alight, double *areflect ) {
-  color a = alight;
+  color a;
 
-  a.red *= areflect[RED];
-  a.green *= areflect[GREEN];
-  a.blue *= areflect[BLUE];
+  a.red = alight.red * areflect[RED];
+  a.green = alight.green * areflect[GREEN];
+  a.blue = alight.blue * areflect[BLUE];
 
   limit_color(&a);
   return a;
