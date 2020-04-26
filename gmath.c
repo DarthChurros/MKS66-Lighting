@@ -49,8 +49,9 @@ color calculate_ambient(color alight, double *areflect ) {
 color calculate_diffuse(double light[2][3], double *dreflect, double *normal ) {
   color d;
 
-  normalize(light[LOCATION]);
-  double cos_theta = dot_product(normal, light[LOCATION]);
+  double light_norm[3] = {light[LOCATION][0], light[LOCATION][1], light[LOCATION][2]};
+  normalize(light_norm);
+  double cos_theta = dot_product(normal, light_norm);
 
   d.red = light[COLOR][RED] * dreflect[RED] * cos_theta;
   d.green = light[COLOR][GREEN] * dreflect[GREEN] * cos_theta;
@@ -63,10 +64,12 @@ color calculate_specular(double light[2][3], double *sreflect, double *view, dou
   color s;
 
   double vec_reflect[3];
+  double light_norm[3] = {light[LOCATION][0], light[LOCATION][1], light[LOCATION][2]};
+  normalize(light_norm);
 
-  vec_reflect[0] = 2 * dot_product(normal, light[LOCATION]) * normal[0] - light[LOCATION][0];
-  vec_reflect[1] = 2 * dot_product(normal, light[LOCATION]) * normal[1] - light[LOCATION][1];
-  vec_reflect[2] = 2 * dot_product(normal, light[LOCATION]) * normal[2] - light[LOCATION][2];
+  vec_reflect[0] = 2 * dot_product(normal, light_norm) * normal[0] - light_norm[0];
+  vec_reflect[1] = 2 * dot_product(normal, light_norm) * normal[1] - light_norm[1];
+  vec_reflect[2] = 2 * dot_product(normal, light_norm) * normal[2] - light_norm[2];
 
   double cos_pow = pow(dot_product(vec_reflect, view), 4);
 
