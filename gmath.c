@@ -74,7 +74,7 @@ color calculate_specular(double light[2][3], double *sreflect, double *view, dou
   vec_reflect[1] = 2 * dot_product(normal, light_norm) * normal[1] - light_norm[1];
   vec_reflect[2] = 2 * dot_product(normal, light_norm) * normal[2] - light_norm[2];
 
-  double cos_pow = pow(dot_product(vec_reflect, view), 5);
+  double cos_pow = pow(dot_product(vec_reflect, view), 9);
 
   s.red = light[COLOR][RED] * sreflect[RED] * cos_pow;
   s.green = light[COLOR][GREEN] * sreflect[GREEN] * cos_pow;
