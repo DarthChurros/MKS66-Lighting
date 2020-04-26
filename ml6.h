@@ -21,9 +21,9 @@ Creates the point structure in order to represent a pixel as a color triple
 */
 struct point_t {
 
-  unsigned short red;
-  unsigned short green;
-  unsigned short blue;
+  short red;
+  short green;
+  short blue;
 } point_t;
 
 /*

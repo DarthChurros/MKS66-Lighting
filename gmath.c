@@ -74,7 +74,7 @@ color calculate_specular(double light[2][3], double *sreflect, double *view, dou
   vec_reflect[1] = 2 * dot_product(normal, light_norm) * normal[1] - light_norm[1];
   vec_reflect[2] = 2 * dot_product(normal, light_norm) * normal[2] - light_norm[2];
 
-  double cos_pow = pow(dot_product(vec_reflect, view), 4);
+  double cos_pow = pow(dot_product(vec_reflect, view), 5);
 
   s.red = light[COLOR][RED] * sreflect[RED] * cos_pow;
   s.green = light[COLOR][GREEN] * sreflect[GREEN] * cos_pow;
@@ -86,9 +86,14 @@ color calculate_specular(double light[2][3], double *sreflect, double *view, dou
 
 //limit each component of c to a max of 255
 void limit_color( color * c ) {
+
+  printf("BEFORE: %d, %d, %d\n", c->red, c->green, c->blue);
+
   c->red = (c->red < 0) ? 0 : (c->red > 255) ? 255 : c->red;
   c->green = (c->green < 0) ? 0 : (c->green > 255) ? 255 : c->green;
   c->blue = (c->blue < 0) ? 0 : (c->blue > 255) ? 255 : c->blue;
+
+  printf("AFTER: %d, %d, %d\n", c->red, c->green, c->blue);
 }
 
 //vector functions
