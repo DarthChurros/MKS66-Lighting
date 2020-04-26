@@ -31,7 +31,7 @@ int main(int argc, char **argv) {
   light[LOCATION][1] = 0.75;
   light[LOCATION][2] = 1;
 
-  light[COLOR][RED] = 0;
+  light[COLOR][RED] = 255;
   light[COLOR][GREEN] = 255;
   light[COLOR][BLUE] = 255;
 
@@ -41,17 +41,17 @@ int main(int argc, char **argv) {
   view[2] = 1;
 
   // reflective constants
-  areflect[RED] = 0.1;
-  areflect[GREEN] = 0.1;
-  areflect[BLUE] = 0.1;
+  areflect[RED] = 0.05;
+  areflect[GREEN] = 0.15;
+  areflect[BLUE] = 0.2;
 
-  dreflect[RED] = 0.5;
-  dreflect[GREEN] = 0.5;
-  dreflect[BLUE] = 0.5;
+  dreflect[RED] = 0.1;
+  dreflect[GREEN] = 0.4;
+  dreflect[BLUE] = 0.6;
 
-  sreflect[RED] = 0.5;
-  sreflect[GREEN] = 0.5;
-  sreflect[BLUE] = 0.5;
+  sreflect[RED] = 0.2;
+  sreflect[GREEN] = 0.7;
+  sreflect[BLUE] = 0.35;
 
   screen s;
   zbuffer zb;
