@@ -45,15 +45,15 @@ color calculate_diffuse(double light[2][3], double *dreflect, double *normal ) {
   double cos_theta = dot_product(normal, light[LOCATION]);
 
   d.red = light[COLOR][RED] * dreflect[RED] * cos_theta;
-  d.red = light[COLOR][RED] * dreflect[RED] * cos_theta;
-  d.red = light[COLOR][RED] * dreflect[RED] * cos_theta;
+  d.green = light[COLOR][GREEN] * dreflect[GREEN] * cos_theta;
+  d.blue = light[COLOR][BLUE] * dreflect[BLUE] * cos_theta;
 
   return d;
 }
 
 color calculate_specular(double light[2][3], double *sreflect, double *view, double *normal ) {
-
   color s;
+
   return s;
 }
 
